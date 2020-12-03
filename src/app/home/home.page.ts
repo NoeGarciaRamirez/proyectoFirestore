@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Articulo } from '../articulo';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,10 @@ export class HomePage {
 
   articuloEditando: Articulo; 
 
-  constructor(private firestoreService: FirestoreService) {
+  constructor(private firestoreService: FirestoreService, private router: Router) {
     // Crear un artículo vacío
     this.articuloEditando = {} as Articulo;
+
   }
 
   clicBotonInsertar() {
@@ -23,6 +25,10 @@ export class HomePage {
     }, (error) => {
       console.error(error);
     });
+  }
+
+  navigateToInformacion() {
+    this.router.navigate(["/informacion"]);
   }
 
 }
