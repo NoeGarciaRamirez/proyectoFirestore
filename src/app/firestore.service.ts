@@ -9,10 +9,10 @@ export class FirestoreService {
 
   constructor(private angularFirestore: AngularFirestore) {
 
-   }
+   }  
 
-  public insertar(articulos, articulo) {
-    return this.angularFirestore.collection(articulos).add(articulo);
+  public insertar(coleccion, articulo) {
+    return this.angularFirestore.collection(coleccion).add(articulo);
   }
 
 }
