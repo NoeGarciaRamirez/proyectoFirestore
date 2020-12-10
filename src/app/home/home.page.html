@@ -43,6 +43,31 @@
 
   <br><br>
 
-  <ion-button (click)="navigateToInformacion()">informacion - Navegación a través del controlador</ion-button>
+
+  <h1>LISTA DE ARTICULOS</h1>
+  <ion-list>
+    <ion-item *ngFor="let documentArticulo of arrayColeccionArticulos" (click)="selecArticulo(documentArticulo)">
+      <ion-grid>
+        <ion-row>
+          <h2>Nombre: {{documentArticulo.data.nombre}}</h2>
+        </ion-row>
+        <ion-row>
+          <p>Descripcion: {{documentArticulo.data.descripcion}}</p>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+
+  <br><br>
+
+  <ion-button (click)="navigateToInformacion()">Información</ion-button>
+
+  <br><br>
+
+  <ion-button (click)="clicBotonBorrar()">Borrar artículo</ion-button>
+
+  <br><br>
+
+  <ion-button (click)="clicBotonModificar()">Modificar artículo</ion-button>
 
 </ion-content>
