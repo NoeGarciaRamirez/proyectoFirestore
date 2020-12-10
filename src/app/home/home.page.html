@@ -1,13 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Añadir artículo
+      ARTÍCULOS
     </ion-title>
   </ion-toolbar>
 </ion-header>
 <br>
 <ion-content [fullscreen]="true">
 
+  <h1 align="center">AÑADIR UN ARTICULO</h1>
   <ion-item>
     <ion-label>Nombre: </ion-label>
     <ion-input [(ngModel)]="articuloEditando.nombre"></ion-input>
@@ -44,7 +45,7 @@
   <br><br>
 
 
-  <h1>LISTA DE ARTICULOS</h1>
+  <h1 align="center">LISTA DE ARTICULOS</h1>
   <ion-list>
     <ion-item *ngFor="let documentArticulo of arrayColeccionArticulos" (click)="selecArticulo(documentArticulo)">
       <ion-grid>
@@ -57,10 +58,6 @@
       </ion-grid>
     </ion-item>
   </ion-list>
-
-  <br><br>
-
-  <ion-button (click)="navigateToInformacion()">Información</ion-button>
 
   <br><br>
 

@@ -52,7 +52,9 @@ export class HomePage {
     this.idArticuloSelec = articuloSelec.id;
     this.articuloEditando.nombre = articuloSelec.data.nombre;
     this.articuloEditando.descripcion = articuloSelec.data.descripcion;
+
     this.router.navigate(["/informacion/" , articuloSelec.id]);
+
   }
 
 
