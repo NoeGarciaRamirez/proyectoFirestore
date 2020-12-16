@@ -35,9 +35,9 @@ export class InformacionPage implements OnInit {
   }
 
   clicBotonModificar() {
-    this.firestoreService.actualizar("articulos", this.id, this.articuloEditando).then(() => {
+    this.firestoreService.actualizar("articulos", this.id, this.document.data).then(() => {
       // Limpiar datos de pantalla
-      this.articuloEditando = {} as Articulo;
+      this.document.data = {} as Articulo;
     })
   }
 
