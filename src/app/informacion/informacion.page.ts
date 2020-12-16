@@ -15,6 +15,7 @@ export class InformacionPage implements OnInit {
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get("id");
+    this.obtenerArticulo();
   }
 
   document: any = {
@@ -22,8 +23,26 @@ export class InformacionPage implements OnInit {
     data: {} as Articulo
   };
 
-  public asdas() {
-    this.firestoreService.consultarPorId("articulos", idConsultar).subscribe((resultado) => {
+  articuloEditando: Articulo;
+  idArticuloSelec: string;
+
+  clicBotonBorrar() {
+    this.firestoreService.borrar("articulos", this.id).then(() => {
+      // Actualizar la lista completa
+      // Limpiar datos de pantalla
+      this.articuloEditando = {} as Articulo;
+    })
+  }
+
+  clicBotonModificar() {
+    this.firestoreService.actualizar("articulos", this.id, this.articuloEditando).then(() => {
+      // Limpiar datos de pantalla
+      this.articuloEditando = {} as Articulo;
+    })
+  }
+
+  obtenerArticulo() {
+    this.firestoreService.consultarPorId("articulos", this.id).subscribe((resultado) => {
       // Preguntar si se hay encontrado un document con ese ID
       if(resultado.payload.data() != null) {
         this.document.id = resultado.payload.id
@@ -35,6 +54,5 @@ export class InformacionPage implements OnInit {
         this.document.data = {} as Articulo;
       } 
     });
-  };
-
+  }
 }

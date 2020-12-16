@@ -8,6 +8,20 @@
 </ion-header>
 
 <ion-content>
-  <ion-input hidden>Id: {{ id }}</ion-input>
+  <ion-input>Id: {{ id }}</ion-input>
   <ion-input>Nombre: {{ document.data.nombre }}</ion-input>
+  <ion-input>Descripción: {{ document.data.descripcion }}</ion-input>
+  <ion-input>Precio: {{ document.data.precio }}</ion-input>
+  <ion-input>Generación: {{ document.data.generacion }}</ion-input>
+  <ion-input>Fecha de salida: {{ document.data.fechaSalida }}</ion-input>
+  <ion-input>Imágen: {{ document.data.imagen }}</ion-input>
+
+
+  <br><br>
+
+  <ion-button (click)="clicBotonBorrar()">Borrar artículo</ion-button>
+
+  <br><br>
+
+  <ion-button (click)="clicBotonModificar()">Modificar artículo</ion-button>
 </ion-content>

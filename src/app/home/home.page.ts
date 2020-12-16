@@ -56,24 +56,4 @@ export class HomePage {
     this.router.navigate(["/informacion/" , articuloSelec.id]);
 
   }
-
-
-  clicBotonBorrar() {
-    this.firestoreService.borrar("articulos", this.idArticuloSelec).then(() => {
-      // Actualizar la lista completa
-      this.obtenerListaArticulos();
-      // Limpiar datos de pantalla
-      this.articuloEditando = {} as Articulo;
-    })
-  }
-
-  clicBotonModificar() {
-    this.firestoreService.actualizar("articulos", this.idArticuloSelec, this.articuloEditando).then(() => {
-      // Actualizar la lista completa
-      this.obtenerListaArticulos();
-      // Limpiar datos de pantalla
-      this.articuloEditando = {} as Articulo;
-    })
-  }
-
 }
