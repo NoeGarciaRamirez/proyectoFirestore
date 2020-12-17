@@ -9,35 +9,40 @@
 <ion-content [fullscreen]="true">
 
   <h1 align="center">AÑADIR UN ARTICULO</h1>
-  <ion-item>
-    <ion-label>Nombre: </ion-label>
-    <ion-input [(ngModel)]="articuloEditando.nombre"></ion-input>
-  </ion-item>
 
-  <ion-item>
-    <ion-label>Descripción: </ion-label>
-    <ion-input [(ngModel)]="articuloEditando.descripcion"></ion-input>
-  </ion-item>
+  <ion-card class="card">
 
-  <ion-item>
-    <ion-label>Precio: </ion-label>
-    <ion-input [(ngModel)]="articuloEditando.precio"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>Nombre: </ion-label>
+      <ion-input [(ngModel)]="articuloEditando.nombre"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Generación: </ion-label>
-    <ion-input [(ngModel)]="articuloEditando.generacion"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>Descripción: </ion-label>
+      <ion-input [(ngModel)]="articuloEditando.descripcion"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Fecha de salida: </ion-label>
-    <ion-input [(ngModel)]="articuloEditando.fechaSalida"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>Precio: </ion-label>
+      <ion-input [(ngModel)]="articuloEditando.precio"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Imágen: </ion-label>
-    <ion-input [(ngModel)]="articuloEditando.imagen"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>Generación: </ion-label>
+      <ion-input [(ngModel)]="articuloEditando.generacion"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Fecha de salida: </ion-label>
+      <ion-input [(ngModel)]="articuloEditando.fechaSalida"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Imágen: </ion-label>
+      <ion-input [(ngModel)]="articuloEditando.imagen"></ion-input>
+    </ion-item>
+
+  </ion-card>
   
   <br><br>
   <ion-button (click)="clicBotonInsertar()">Añadir artículo</ion-button>
@@ -47,24 +52,18 @@
 
   <h1 align="center">LISTA DE ARTICULOS</h1>
   <ion-list>
-    <ion-item *ngFor="let documentArticulo of arrayColeccionArticulos" (click)="selecArticulo(documentArticulo)">
-      <ion-grid>
-        <ion-row>
-          <h2>Nombre: {{documentArticulo.data.nombre}}</h2>
-        </ion-row>
-        <ion-row>
-          <p>Descripcion: {{documentArticulo.data.descripcion}}</p>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-item *ngFor="let documentArticulo of arrayColeccionArticulos" (click)="selecArticulo(documentArticulo)" size-xl="3" size-lg="4" size-md="5" size-sm="8" size-xs="12">
+          <ion-card class="card">
+            <ion-card-content>
+              <h2 class="labelH2">Nombre: {{documentArticulo.data.nombre}}</h2>
+              <p>Descripcion: {{documentArticulo.data.descripcion}}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-item>
+      </ion-row>
+    </ion-grid>
   </ion-list>
-
-  <br><br>
-
-  <ion-button (click)="clicBotonBorrar()">Borrar artículo</ion-button>
-
-  <br><br>
-
-  <ion-button (click)="clicBotonModificar()">Modificar artículo</ion-button>
 
 </ion-content>

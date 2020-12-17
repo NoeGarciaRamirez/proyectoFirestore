@@ -7,20 +7,28 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-input>Id: {{ id }}</ion-input>
-  <ion-input [(ngModel)]="document.data.nombre">Nombre: </ion-input>
-  <ion-input [(ngModel)]="document.data.descripcion">Descripción: </ion-input>
-  <ion-input [(ngModel)]="document.data.precio">Precio: </ion-input>
-  <ion-input [(ngModel)]="document.data.generacion">Generación: </ion-input>
-  <ion-input [(ngModel)]="document.data.fechaSalida">Fecha de salida: </ion-input>
-  <ion-input [(ngModel)]="document.data.imagen">Imágen: </ion-input>
+<ion-content class="content">
 
-  <br><br>
+    <ion-card class="card">
 
-  <ion-button (click)="clicBotonBorrar()">Borrar artículo</ion-button>
+      <ion-card-header>
+        <ion-input [(ngModel)]="document.data.nombre"><strong>Nombre: </strong></ion-input>
+      </ion-card-header>
 
-  <br><br>
+      <ion-card-content>
+        <ion-input hidden>Id: {{ id }}</ion-input>
+        <ion-input [(ngModel)]="document.data.descripcion"><b>Descripción: </b></ion-input>
+        <ion-input [(ngModel)]="document.data.precio"><b>Precio: </b></ion-input>
+        <ion-input [(ngModel)]="document.data.generacion"><b>Generación: </b></ion-input>
+        <ion-input [(ngModel)]="document.data.fechaSalida"><b>Fecha de salida: </b></ion-input>
+        <ion-input [(ngModel)]="document.data.imagen"><b>Imágen: </b></ion-input>
+      </ion-card-content>
 
-  <ion-button (click)="clicBotonModificar()">Modificar artículo</ion-button>
+    </ion-card>
+
+  <ion-row>
+    <ion-button color="success" shape="round" (click)="clicBotonModificar()">Modificar artículo</ion-button>
+    <ion-button color="danger" shape="round" (click)="clicBotonBorrar()">Borrar artículo</ion-button>
+  </ion-row>
+
 </ion-content>

@@ -52,7 +52,7 @@ export class InformacionPage implements OnInit {
       } else {
         // No se ha encontrado un document con ese ID. Vaciar los datos que hubiera
         this.document.data = {} as Articulo;
-      } 
+      }
     });
   }
 }

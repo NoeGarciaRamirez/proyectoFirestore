@@ -17,11 +17,16 @@
   font-size: 16px;
   line-height: 22px;
 
-  color: #8c8c8c;
+  color: #9fc4e2;
 
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
+}
+
+.card {
+  --background: rgb(193, 236, 243);
+  --color: black;
 }
