@@ -8,51 +8,9 @@
 <br>
 <ion-content [fullscreen]="true" class="content">
   
-  <ion-fab slot="fixed">
-    <ion-fab-button (click)="nuevoArticulo()">+</ion-fab-button>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button color="primary" (click)="nuevoArticulo()">+</ion-fab-button>
   </ion-fab>
-
-  <h1 align="center">AÑADIR UN ARTICULO</h1>
-
-  <ion-card class="card">
-
-    <ion-item>
-      <ion-label>Nombre: </ion-label>
-      <ion-input [(ngModel)]="articuloEditando.nombre"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Descripción: </ion-label>
-      <ion-input [(ngModel)]="articuloEditando.descripcion"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Precio: </ion-label>
-      <ion-input [(ngModel)]="articuloEditando.precio"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Generación: </ion-label>
-      <ion-input [(ngModel)]="articuloEditando.generacion"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Fecha de salida: </ion-label>
-      <ion-input [(ngModel)]="articuloEditando.fechaSalida"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Imágen: </ion-label>
-      <ion-input [(ngModel)]="articuloEditando.imagen"></ion-input>
-    </ion-item>
-
-  </ion-card>
-  
-  <br><br>
-  <ion-button shape="round" (click)="clicBotonInsertar()">Añadir artículo</ion-button>
-
-  <br><br>
-
 
   <h1 align="center">LISTA DE ARTICULOS</h1>
     <ion-grid>

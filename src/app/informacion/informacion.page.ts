@@ -44,12 +44,13 @@ export class InformacionPage implements OnInit {
   }
   
   clicBotonInsertar() {
-    this.firestoreService.insertar("articulos", this.articuloEditando).then(() => {
+    this.firestoreService.insertar("articulos", this.document.data).then(() => {
       console.log('Artículo creado correctamente!');
-      this.articuloEditando= {} as Articulo;
+      this.document.data= {} as Articulo;
     }, (error) => {
       console.error(error);
     });
+    this.router.navigate(["/home"]);
   }
 
   obtenerArticulo() {
@@ -58,8 +59,6 @@ export class InformacionPage implements OnInit {
       if(resultado.payload.data() != null) {
         this.document.id = resultado.payload.id
         this.document.data = resultado.payload.data();
-        // Como ejemplo, mostrar el título de la articulo en consola
-        console.log(this.document.data.titulo);
       } else {
         // No se ha encontrado un document con ese ID. Vaciar los datos que hubiera
         this.document.data = {} as Articulo;
