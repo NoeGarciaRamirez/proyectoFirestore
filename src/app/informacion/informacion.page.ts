@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { Articulo } from '../articulo';
 import { FirestoreService } from '../firestore.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-informacion',
@@ -11,7 +12,7 @@ import { FirestoreService } from '../firestore.service';
 export class InformacionPage implements OnInit {
   id = null;
 
-  constructor(private activatedRoute: ActivatedRoute, private firestoreService: FirestoreService) { }
+  constructor(private activatedRoute: ActivatedRoute, private firestoreService: FirestoreService, private router: Router) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get("id");
@@ -31,7 +32,8 @@ export class InformacionPage implements OnInit {
       // Actualizar la lista completa
       // Limpiar datos de pantalla
       this.articuloEditando = {} as Articulo;
-    })
+    });
+    this.router.navigate(["/home"]);
   }
 
   clicBotonModificar() {
@@ -39,6 +41,15 @@ export class InformacionPage implements OnInit {
       // Limpiar datos de pantalla
       this.document.data = {} as Articulo;
     })
+  }
+  
+  clicBotonInsertar() {
+    this.firestoreService.insertar("articulos", this.articuloEditando).then(() => {
+      console.log('Artículo creado correctamente!');
+      this.articuloEditando= {} as Articulo;
+    }, (error) => {
+      console.error(error);
+    });
   }
 
   obtenerArticulo() {

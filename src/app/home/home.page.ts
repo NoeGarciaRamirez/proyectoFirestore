@@ -35,15 +35,6 @@ export class HomePage {
     });
   }
 
-  clicBotonInsertar() {
-    this.firestoreService.insertar("articulos", this.articuloEditando).then(() => {
-      console.log('Artículo creado correctamente!');
-      this.articuloEditando= {} as Articulo;
-    }, (error) => {
-      console.error(error);
-    });
-  }
-
   idArticuloSelec: string;
 
   selecArticulo(articuloSelec) {
@@ -54,6 +45,12 @@ export class HomePage {
     this.articuloEditando.descripcion = articuloSelec.data.descripcion;
 
     this.router.navigate(["/informacion/" , articuloSelec.id]);
+
+  }
+
+  nuevoArticulo() {
+
+    this.router.navigate(["/informacion/nuevo"]);
 
   }
 }
