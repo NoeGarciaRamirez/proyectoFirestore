@@ -53,4 +53,23 @@ export class HomePage {
     this.router.navigate(["/informacion/nuevo"]);
 
   }
+
+  //Botones del footer
+  home() {
+
+    this.router.navigate(["/home"]);
+
+  }
+
+  infoApp() {
+
+    this.router.navigate(["/infoApp"]);
+
+  }
+
+  map() {
+
+    this.router.navigate(["/map"]);
+
+  }
 }

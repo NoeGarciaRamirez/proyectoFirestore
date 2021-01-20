@@ -65,4 +65,22 @@ export class InformacionPage implements OnInit {
       }
     });
   }
+  //Botones del footer
+  home() {
+
+    this.router.navigate(["/home"]);
+
+  }
+
+  infoApp() {
+
+    this.router.navigate(["/infoApp"]);
+
+  }
+
+  map() {
+
+    this.router.navigate(["/map"]);
+
+  }
 }
