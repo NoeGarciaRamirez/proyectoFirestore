@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {
+
+  }
 
   ngOnInit() {
+  }
+
+  //Botones del footer
+  home() {
+
+    this.router.navigate(["/home"]);
+
+  }
+
+  infoApp() {
+
+    this.router.navigate(["/about"]);
+
+  }
+
+  map() {
+
+    this.router.navigate(["/map"]);
+
   }
 
 }

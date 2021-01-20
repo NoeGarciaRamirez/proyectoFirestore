@@ -24,7 +24,7 @@ export class MapPage implements OnInit {
 
   infoApp() {
 
-    this.router.navigate(["/infoApp"]);
+    this.router.navigate(["/about"]);
 
   }
 

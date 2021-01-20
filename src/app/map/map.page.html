@@ -8,14 +8,30 @@
 <br>
 <ion-content [fullscreen]="true" class="content">
 
-  <h1 align="center">mapa</h1>
+  <h1 align="center">Map</h1>
 
+  <div align="center">
+    <h4>Ubicación de la empresa</h4>
+    <br>
+    <img src="https://www.calidadendestino.es/Imagenes/ImagenesWeb/270968c9-d1a6-4a68-b8c0-235fd58d684e_MApa%20de%20Ubrique.jpg" alt="alternatetext">
+  </div>
+  
 </ion-content>
 
 
 <!-- Botones para navegar a las distintas páginas en el footer -->
-<ion-footer translucent>
-  <ion-button (click)="home()" size="large" color="tertiary" shape="round"><ion-icon name="home-outline"></ion-icon></ion-button>
-  <ion-button (click)="infoApp()" size="large" color="tertiary" shape="round"><ion-icon name="information-circle-outline"></ion-icon></ion-button>
-  <ion-button (click)="map()" size="large" color="tertiary" shape="round"><ion-icon name="map-outline"></ion-icon></ion-button>
+<ion-footer translucent style="text-align:center">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="home()" size="large" color="tertiary" shape="round"><ion-icon name="home-outline"></ion-icon></ion-button>
+      </ion-col>
+        <ion-col>
+        <ion-button (click)="infoApp()" size="large" color="tertiary" shape="round"><ion-icon name="information-circle-outline"></ion-icon></ion-button>
+      </ion-col> 
+      <ion-col>  
+        <ion-button (click)="map()" size="large" color="tertiary" shape="round"><ion-icon name="map-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-footer>

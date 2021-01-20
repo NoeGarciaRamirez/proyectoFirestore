@@ -63,7 +63,7 @@ export class HomePage {
 
   infoApp() {
 
-    this.router.navigate(["/infoApp"]);
+    this.router.navigate(["/about"]);
 
   }
 

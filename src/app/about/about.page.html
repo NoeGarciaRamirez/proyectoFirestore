@@ -1,9 +1,49 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>about</ion-title>
+    <ion-title>
+      ARTÍCULOS
+    </ion-title>
   </ion-toolbar>
 </ion-header>
+<br>
+<ion-content [fullscreen]="true" class="content">
 
-<ion-content>
+  <h1 align="center">Información de la aplicación</h1>
+  <div class="spot">
+    <br>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis magna ac purus vestibulum imperdiet. Aliquam laoreet id magna sodales placerat. <br>
+      Nullam tincidunt eget sapien tincidunt mattis. Aliquam erat volutpat. Nunc sit amet orci non erat tempor laoreet. Proin erat velit, mollis quis auctor in, blandit eget eros. Nullam luctus quis lacus ut interdum. <br>
+      Nunc commodo arcu nibh, sed hendrerit justo finibus in. Mauris mattis aliquet tincidunt. Phasellus sit amet tellus tincidunt, ultricies sapien et, vestibulum tortor. Quisque vel consectetur metus, nec sodales ipsum.
+    </p>
+    <p>
+      Pellentesque at ipsum ut ex imperdiet dictum. Nam efficitur finibus neque, vel cursus urna. Morbi fermentum malesuada risus at dignissim. In id eros non turpis facilisis commodo id id neque. <br>
+      Donec dictum ante scelerisque magna egestas tristique. Duis tortor velit, luctus et porttitor ut, lobortis et elit. Nam quis venenatis nisl. Sed sollicitudin ornare metus ac varius. Vestibulum in imperdiet ligula. <br>
+      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus iaculis pretium gravida.
+    </p>
+    <p>
+      In sit amet velit ac orci lacinia tincidunt pretium tempor diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. <br>
+      Pellentesque non erat vel arcu viverra dignissim. Integer volutpat a nibh in lobortis. Donec vitae ultrices elit. Nulla finibus bibendum mi in posuere. Proin porta, lacus ut ullamcorper varius, augue mauris scelerisque augue, fermentum consequat neque ante venenatis sapien. <br>
+      Cras tincidunt neque eu vestibulum fringilla. Nullam massa ex, auctor a commodo vitae, aliquam in mauris. Praesent eu volutpat ante. Donec tempor augue nec dictum mollis.
+    </p>
+  </div>
 
 </ion-content>
+
+
+<!-- Botones para navegar a las distintas páginas en el footer -->
+<ion-footer translucent style="text-align:center">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="home()" size="large" color="tertiary" shape="round"><ion-icon name="home-outline"></ion-icon></ion-button>
+      </ion-col>
+        <ion-col>
+        <ion-button (click)="infoApp()" size="large" color="tertiary" shape="round"><ion-icon name="information-circle-outline"></ion-icon></ion-button>
+      </ion-col> 
+      <ion-col>  
+        <ion-button (click)="map()" size="large" color="tertiary" shape="round"><ion-icon name="map-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

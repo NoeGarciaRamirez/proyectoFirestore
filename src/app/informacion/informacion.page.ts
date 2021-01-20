@@ -74,7 +74,7 @@ export class InformacionPage implements OnInit {
 
   infoApp() {
 
-    this.router.navigate(["/infoApp"]);
+    this.router.navigate(["/about"]);
 
   }
 

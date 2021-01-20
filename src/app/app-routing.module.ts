@@ -22,11 +22,7 @@ const routes: Routes = [
   {
     path: 'map',
     loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
-  },
-  {
-    path: 'info-app',
-    loadChildren: () => import('./info-app/info-app.module').then( m => m.InfoAppPageModule)
-  },
+  }
 ];
 
 @NgModule({
