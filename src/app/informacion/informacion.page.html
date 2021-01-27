@@ -32,7 +32,7 @@
   <ion-row>
     <!-- Modificar -->
     <ion-button color="success" shape="round" (click)="clicBotonModificar()" *ngIf="id!='nuevo'">Modificar artículo</ion-button>
-    <ion-button color="danger" shape="round" (click)="clicBotonBorrar()" *ngIf="id!='nuevo'">Borrar artículo</ion-button>
+    <ion-button color="danger" shape="round" (click)="alertConfirmar()" *ngIf="id!='nuevo'">Borrar artículo</ion-button>
 
     <!-- Añadir -->
     <ion-button color="success" shape="round" (click)="clicBotonInsertar()" *ngIf="id=='nuevo'">Añadir</ion-button>

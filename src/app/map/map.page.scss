@@ -34,6 +34,12 @@
     --color:rgb(176, 230, 255);
   }
 
+  @media screen and (orientation: landscape) {
+    .textoH5 {
+      text-align: left;
+    }
+  }
+
   @media screen and (orientation: portrait) {
     .txtIconosFooter {
       display: none;

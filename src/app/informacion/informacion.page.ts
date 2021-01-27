@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Articulo } from '../articulo';
 import { FirestoreService } from '../firestore.service';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-informacion',
@@ -12,7 +13,10 @@ import { Router } from '@angular/router';
 export class InformacionPage implements OnInit {
   id = null;
 
-  constructor(private activatedRoute: ActivatedRoute, private firestoreService: FirestoreService, private router: Router) { }
+  constructor(private activatedRoute: ActivatedRoute,
+    private firestoreService: FirestoreService,
+    private router: Router,
+    private alertCtrl: AlertController) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get("id");
@@ -26,6 +30,30 @@ export class InformacionPage implements OnInit {
 
   articuloEditando: Articulo;
   idArticuloSelec: string;
+
+  async alertConfirmar() {
+    const alert = await this.alertCtrl.create({
+      cssClass: 'my-custom-class',
+      header: 'Artículos',
+      message: '¿Eliminar el artículo?',
+      buttons: [
+        {
+          text: 'Aceptar',
+          role: 'submit',
+          handler: () => {
+            this.clicBotonBorrar();
+          }
+        }, 
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            handler: () => {
+            }
+          }
+        ]
+    });
+    await alert.present();
+  }
 
   clicBotonBorrar() {
     this.firestoreService.borrar("articulos", this.id).then(() => {
