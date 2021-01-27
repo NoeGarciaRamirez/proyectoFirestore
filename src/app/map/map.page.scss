@@ -33,3 +33,9 @@
   .lista {
     --color:rgb(176, 230, 255);
   }
+
+  @media screen and (orientation: portrait) {
+    .txtIconosFooter {
+      display: none;
+    }
+  }

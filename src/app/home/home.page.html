@@ -32,21 +32,25 @@
 
 
 <!-- Botones para navegar a las distintas páginas en el footer -->
-<ion-footer translucent style="text-align:center">
+<ion-footer id="footer" style="text-align:center">
   <ion-grid>
     <ion-row>
+
       <ion-col>
         <ion-button (click)="home()" size="large" color="tertiary" shape="round"><ion-icon name="home-outline"></ion-icon></ion-button>
-        <h5 class="txtIconosFooter">Home</h5>
       </ion-col>
+      <ion-col class="txtIconosFooter"><h5 class="textoH5"><b>Home</b></h5></ion-col>
+
         <ion-col>
         <ion-button (click)="infoApp()" size="large" color="tertiary" shape="round"><ion-icon name="information-circle-outline"></ion-icon></ion-button>
-        <h5 class="txtIconosFooter">Info</h5>
       </ion-col>
+      <ion-col class="txtIconosFooter"><h5 class="textoH5"><b>Info</b></h5></ion-col>
+
       <ion-col>
         <ion-button (click)="map()" size="large" color="tertiary" shape="round"><ion-icon name="map-outline"></ion-icon></ion-button>
-        <h5 class="txtIconosFooter">Mapa</h5>
       </ion-col>
+      <ion-col class="txtIconosFooter"><h5 class="textoH5"><b>Mapa</b></h5></ion-col>
+
     </ion-row>
   </ion-grid>
 </ion-footer>

@@ -1,16 +1,26 @@
-#container p {
-    color: #9fc4e2;
-}
+    #container p {
+        color: #9fc4e2;
+    }
 
-.card {
-    --background: rgb(193, 236, 243);
-    --color: black;
-}
+    .card {
+        --background: rgb(193, 236, 243);
+        --color: black;
+    }
 
-.content {
-    --background:rgb(176, 230, 255);
-}
+    .content {
+        --background:rgb(176, 230, 255);
+    }
 
-#container a {
-    text-decoration: none;
-  }
+    #container a {
+        text-decoration: none;
+    }
+
+    @media screen and (orientation: portrait) {
+        .txtIconosFooter {
+        display: none;
+        }
+    }
+
+    #footer {
+        --background-color:rgb(176, 230, 255);
+      }
