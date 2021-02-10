@@ -35,6 +35,7 @@ export class InformacionPage implements OnInit {
 
   articuloEditando: Articulo;
   idArticuloSelec: string;
+  //fileURL: string;
 
   async uploadImagePicker() {
     //Mensaje de espera
@@ -75,11 +76,14 @@ export class InformacionPage implements OnInit {
                 this.firestoreService.uploadImage(nombreCarpeta, nombreImagen,
                 results[i])
                 .then(snapshot => {
-                  snapshot.ref.getDounloadURL()
+                  snapshot.ref.getDownloadURL()
                   .then(downloadURL => {
                     //En la variable downloadURL se tiene la dirección de descarga
                     //de la imagen
                     console.log("downloadURL:" + downloadURL);
+                    //Meter el enlace de la imagen en el objeto
+                    this.document.data.imagen = downloadURL;
+                    //fileURL = downloadURL;
                     //Mostrar el mensaje de finalización de subida
                     toast.present();
                     //Ocultar mensaje de espera
@@ -99,6 +103,7 @@ export class InformacionPage implements OnInit {
   }
 
   async deleteFile(fileURL) {
+    console.log('Llega a iniciar deleteFile con la URL: '+fileURL);
     const toast = await this.toastController.create({
       message: 'Archivo eliminado correctamente',
       duration: 2000
@@ -111,7 +116,7 @@ export class InformacionPage implements OnInit {
     });
   }
 
-  async alertConfirmar() {
+  async alertConfirmar(fileURL) {
     const alert = await this.alertCtrl.create({
       cssClass: 'my-custom-class',
       header: 'Artículos',
@@ -121,9 +126,9 @@ export class InformacionPage implements OnInit {
           text: 'Aceptar',
           role: 'submit',
           handler: () => {
-            this.clicBotonBorrar();
+            this.clicBotonBorrar(fileURL);
           }
-        }, 
+        },
           {
             text: 'Cancelar',
             role: 'cancel',
@@ -135,7 +140,8 @@ export class InformacionPage implements OnInit {
     await alert.present();
   }
 
-  clicBotonBorrar() {
+  clicBotonBorrar(fileURL) {
+    this.deleteFile(fileURL);
     this.firestoreService.borrar("articulos", this.id).then(() => {
       // Actualizar la lista completa
       // Limpiar datos de pantalla
@@ -153,10 +159,10 @@ export class InformacionPage implements OnInit {
   
   clicBotonInsertar() {
     this.firestoreService.insertar("articulos", this.document.data).then(() => {
-      console.log('Artículo creado correctamente!');
-      this.document.data= {} as Articulo;
+        console.log('Artículo creado correctamente!');
+        this.document.data = {};
     }, (error) => {
-      console.error(error);
+        console.error(error);
     });
     this.router.navigate(["/home"]);
   }

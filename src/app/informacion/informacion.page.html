@@ -24,7 +24,8 @@
         <ion-input [(ngModel)]="document.data.precio"><b>Precio: </b></ion-input>
         <ion-input [(ngModel)]="document.data.generacion"><b>Generación: </b></ion-input>
         <ion-input [(ngModel)]="document.data.fechaSalida"><b>Fecha de salida: </b></ion-input>
-        <ion-input [(ngModel)]="document.data.imagen"><b>Imágen: </b></ion-input>
+        <ion-input><b>Imágen: </b></ion-input>
+          <img *ngIf="document.data.imagen" [src]="document.data.imagen">
       </ion-card-content>
       <ion-button (click)="uploadImagePicker()">Subir imagen</ion-button>
 
@@ -33,7 +34,7 @@
   <ion-row>
     <!-- Modificar -->
     <ion-button color="success" shape="round" (click)="clicBotonModificar()" *ngIf="id!='nuevo'">Modificar artículo</ion-button>
-    <ion-button color="danger" shape="round" (click)="alertConfirmar()" *ngIf="id!='nuevo'">Borrar artículo</ion-button>
+    <ion-button color="danger" shape="round" (click)="alertConfirmar(document.data.imagen)" *ngIf="id!='nuevo'">Borrar artículo</ion-button>
 
     <!-- Añadir -->
     <ion-button color="success" shape="round" (click)="clicBotonInsertar()" *ngIf="id=='nuevo'">Añadir</ion-button>
