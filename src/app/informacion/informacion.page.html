@@ -38,7 +38,7 @@
 
     <!-- Añadir -->
     <ion-button color="success" shape="round" (click)="clicBotonInsertar()" *ngIf="id=='nuevo'">Añadir</ion-button>
-    <ion-button color="danger" shape="round" (click)="clicBotonBorrar()" *ngIf="id=='nuevo'">Cancelar</ion-button>
+    <ion-button color="danger" shape="round" (click)="clicBotonBorrar(document.data.imagen)" *ngIf="id=='nuevo'">Cancelar</ion-button>
   </ion-row>
 
 </ion-content>
