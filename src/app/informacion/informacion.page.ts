@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+//import { url } from 'inspector';
 
 @Component({
   selector: 'app-informacion',
@@ -21,7 +23,8 @@ export class InformacionPage implements OnInit {
     private alertCtrl: AlertController,
     private loadingController: LoadingController,
     private toastController: ToastController,
-    private imagePicker: ImagePicker) { }
+    private imagePicker: ImagePicker,
+    private socialSharing: SocialSharing) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get("id");
@@ -138,6 +141,32 @@ export class InformacionPage implements OnInit {
         ]
     });
     await alert.present();
+  }
+
+  clicShare () {
+    this.socialSharing.canShareViaEmail().then(() => {
+    }).catch(() => {
+    });
+
+        // 'Artículo: '+this.document.data.nombre+'<br>'+
+        // 'Descripción: '+this.document.data.descripcion+'<br>'+
+        // 'Generación: '+this.document.data.generacion+'<br>'+
+        // 'Precio: <b>'+this.document.data.precio+'</b>',
+        // 'Mira este artículo: <b>' + this.document.data.nombre+'</b>'
+
+    this.socialSharing.shareViaEmail(
+      this.document.data.imagen,
+      'Mira este artículo: ' + this.document.data.nombre + ' ' + this.document.data.precio,
+      ['example@gmail.com']
+      ).then(() => {
+    }).catch(() => {
+    });
+
+    // this.socialSharing.shareViaWhatsApp(
+    //   'holaaa', 'asda', 'asd'
+    // ).then(()=>{
+    // }).catch(()=>{
+    // });
   }
 
   clicBotonBorrar(fileURL) {

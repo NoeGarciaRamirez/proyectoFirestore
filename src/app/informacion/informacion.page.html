@@ -1,4 +1,5 @@
 <ion-header>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <ion-toolbar>
     <ion-title>Información del Artículo</ion-title>
     <ion-buttons slot="start">
@@ -27,11 +28,18 @@
         <ion-input><b>Imágen: </b></ion-input>
           <img *ngIf="document.data.imagen" [src]="document.data.imagen">
       </ion-card-content>
-      <ion-button (click)="uploadImagePicker()">Subir imagen</ion-button>
+
+      <!-- Subir imagen -->
+      <ion-button (click)="uploadImagePicker()">Subir imagen <i class="material-icons">upload</i></ion-button>
+      <!-- Compartir -->
+      <span style="float: right;">
+        <ion-button shape="round"><i class="material-icons" (click)="clicShare()" *ngIf="id!='nuevo'">share</i></ion-button>
+      </span>
 
     </ion-card>
 
   <ion-row>
+    
     <!-- Modificar -->
     <ion-button color="success" shape="round" (click)="clicBotonModificar()" *ngIf="id!='nuevo'">Modificar artículo</ion-button>
     <ion-button color="danger" shape="round" (click)="alertConfirmar(document.data.imagen)" *ngIf="id!='nuevo'">Borrar artículo</ion-button>
