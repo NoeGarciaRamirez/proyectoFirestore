@@ -144,29 +144,14 @@ export class InformacionPage implements OnInit {
   }
 
   clicShare () {
-    this.socialSharing.canShareViaEmail().then(() => {
-    }).catch(() => {
+
+    this.socialSharing.share(this.document.data.imagen,
+      'Mira este artículo: '+ this.document.data.nombre + ' ' + this.document.data.precio, null, null).then(() => {
+      console.log("Se ha compartido correctamente");
+    }).catch((error) => {
+      console.log("Se ha producido un error: " + error);
     });
-
-        // 'Artículo: '+this.document.data.nombre+'<br>'+
-        // 'Descripción: '+this.document.data.descripcion+'<br>'+
-        // 'Generación: '+this.document.data.generacion+'<br>'+
-        // 'Precio: <b>'+this.document.data.precio+'</b>',
-        // 'Mira este artículo: <b>' + this.document.data.nombre+'</b>'
-
-    this.socialSharing.shareViaEmail(
-      this.document.data.imagen,
-      'Mira este artículo: ' + this.document.data.nombre + ' ' + this.document.data.precio,
-      ['example@gmail.com']
-      ).then(() => {
-    }).catch(() => {
-    });
-
-    // this.socialSharing.shareViaWhatsApp(
-    //   'holaaa', 'asda', 'asd'
-    // ).then(()=>{
-    // }).catch(()=>{
-    // });
+    
   }
 
   clicBotonBorrar(fileURL) {
