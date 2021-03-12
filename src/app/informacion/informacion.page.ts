@@ -154,6 +154,16 @@ export class InformacionPage implements OnInit {
     
   }
 
+  clicShareTwitter () {
+    this.socialSharing.shareViaTwitter('Mira este artículo: '+ this.document.data.nombre + ' ' + this.document.data.precio,
+    this.document.data.imagen, this.document.data.imagen);
+  }
+
+  clicShareFacebook () {
+    this.socialSharing.shareViaFacebook('Mira este artículo: '+ this.document.data.nombre + ' ' + this.document.data.precio,
+    this.document.data.imagen, this.document.data.imagen);
+  }
+
   clicBotonBorrar(fileURL) {
     this.deleteFile(fileURL);
     this.firestoreService.borrar("articulos", this.id).then(() => {

@@ -35,15 +35,29 @@
       <span style="float: right;">
         <ion-button shape="round"><i class="material-icons" (click)="clicShare()" *ngIf="id!='nuevo'">share</i></ion-button>
       </span>
+      <!-- Compartir Twitter y Facebook -->
+      <span style="float: right;">
+        <button  (click)="clicShareTwitter()" block>
+          <img src="../../assets/icon/twitter.png">
+        </button>
+        
+      </span>
+      <span style="float: right;">
+        <button  (click)="shareViaFacebook()" block>
+          <img src="../../assets/icon/facebook.png">
+        </button>
+      </span>
 
     </ion-card>
 
   <ion-row>
     
     <!-- Modificar -->
-    <ion-button color="success" shape="round" (click)="clicBotonModificar()" *ngIf="id!='nuevo'">Modificar artículo</ion-button>
-    <ion-button color="danger" shape="round" (click)="alertConfirmar(document.data.imagen)" *ngIf="id!='nuevo'">Borrar artículo</ion-button>
-
+    <div>
+      <ion-button color="success" shape="round" (click)="clicBotonModificar()" *ngIf="id!='nuevo'">Modificar</ion-button>
+      <ion-button color="danger" shape="round" (click)="alertConfirmar(document.data.imagen)" *ngIf="id!='nuevo'">Eliminar</ion-button>  
+    </div>
+    
     <!-- Añadir -->
     <ion-button color="success" shape="round" (click)="clicBotonInsertar()" *ngIf="id=='nuevo'">Añadir</ion-button>
     <ion-button color="danger" shape="round" (click)="clicBotonBorrar(document.data.imagen)" *ngIf="id=='nuevo'">Cancelar</ion-button>
